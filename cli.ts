@@ -14,12 +14,12 @@ import page from "./lib/render-page";
 import mdR from "./lib/markdown-regex";
 import { FileTree, StringFile } from "./lib/types";
 
-const [docsFolder, ...argsRest] = process.argv.slice(2);
+const [docsFolder, outputFolder, ...argsRest] = process.argv.slice(2);
 
 // Default parameters
 const defaultFolder = "docs";
 const folder = docsFolder || defaultFolder;
-const output = `_${folder}`;
+const output = (outputFolder) ? outputFolder : `_${folder}`;
 const templateFilename = "template.html";
 const contentsFilename = "contents.json";
 const preferences = ["index.md", "README.md"];
@@ -49,7 +49,7 @@ const tpl = sh.cat(template);
 // Prepare output folder (create, clean, copy sources)
 sh.mkdir("-p", output);
 sh.rm("-rf", output + "/*");
-sh.cp("-R", folder + "/*", output);
+sh.cp("-R", folder + `/!(node_modules|${output})`, output);
 
 // Start processing. Outline:
 //

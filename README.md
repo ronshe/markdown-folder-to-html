@@ -35,10 +35,17 @@ Given we have some docs:
 You can pass an argument to the cli to change the input folder (by default
 `docs`). That will change the output folder too to `_FOLDERNAME` (by default
 `_docs`).
-
 ```bash
 markdown-folder-to-html documentation
+# Input files from documentation
 # Outputs site to _documentation
+```
+
+Or:
+```bash
+markdown-folder-to-html documentation html
+# Input files from documentation
+# Outputs site to html
 ```
 
 If you want to change the output folder name, just `mv` it to something else.

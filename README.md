@@ -1,10 +1,13 @@
 # markdown-folder-to-html
 
+**This is a clone of https://github.com/joakin/markdown-folder-to-html**
+My clone adds the ability to set output folder. This let you create a **git-book** where the project is located in one place and the output html files elsewhere (say: your `public_html` folder).
+
 Simplest zero-config way to generate html docs from markdown files.
 
-Copies `docs` to `_docs` and compiles markdown files to html using
-`docs/template.html`.
+Copies &lt;input folder&gt; to &lt;output folder&gt; and compiles markdown files to html using `docs/template.html`.
 
+Original project
 [Live example at chimeces.com/markdown-folder-to-html](http://chimeces.com/markdown-folder-to-html/)
 
 ## Usage
@@ -14,14 +17,21 @@ Requires node.js >= 6
 Given we have some docs:
 
 1. `mkdir -p docs`
-2. Add some docs `echo "**Banana**" > docs/banana.md`
-3. Add some docs `echo "**Apple**" > docs/index.md`
+1. Add some docs `echo "**Banana**" > docs/banana.md`
+1. Add some docs `echo "**Apple**" > docs/index.md`
 
 ### In a project
 
+Original instructions:
 1. Install `npm install -D markdown-folder-to-html`
-2. Add `docs` to npm scripts `{"scripts": {"docs": "markdown-folder-to-html"}}`
-3. 🎉 `npm run docs` and `open _docs/index.html`
+1. Add `docs` to npm scripts `{"scripts": {"docs": "markdown-folder-to-html"}}`
+1. 🎉 `npm run docs` and `open _docs/index.html`
+
+Extension instructions to execute on current project (`.`) to output folder (`../public_html`):
+1. Install `npm install -P markdown-folder-to-html`
+1. Add `docs` to npm scripts `{"scripts": {"docs": "markdown-folder-to-html . ../public_html"}}`
+1. 🎉 `npm run docs`
+1.  Browse to your html folder
 
 ### Globally
 

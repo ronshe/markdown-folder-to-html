@@ -82,9 +82,23 @@ This is the basic template that would work:
 </html>
 ```
 
-Create your own in your docs folder `docs/template.html` to use that one
+Create your own in your docs folder `template.html` to use that one
 instead. Feel free to include styles inline or CSS files (since all will be
 copied to output).
+
+In order to have code syntax highlighting just add the following lines in `template.html`, just before the `body` tag.
+```html
+  <script>
+    (function() {
+
+      var codeTags = document.querySelectorAll('code[class^="language-"]');
+      for (var tag of codeTags) {
+        tag.className = tag.className.replace("language-", "prettyprint lang-");
+      }
+    })();
+  </script>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  ```
 
 ### Order
 

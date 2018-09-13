@@ -492,6 +492,14 @@
 
     }(this, this.document));
   </script>
+  <script>
+    (function() {
+      var codeTags = document.querySelectorAll('code[class^="language-"]');
+      for (var tag of codeTags) {
+        tag.className = tag.className.replace("language-", "prettyprint lang-");
+      }
+    })();
+  </script>
+  <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 </body>
-
 </html>
